@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="search" type="text" />
+    <button onclick="search()">Search</button>
+</body>
+
+</html>
+<script>
+    let input = document.getElementById("search").value;
+    let url = `https://api.coursera.org/api/courses.v1?q=slug&slug=software`
+    async function search() {
+        let res = await fetch(url)
+        let data = await res.json()
+        console.log(data)
+    }
+    // search()
+</script>

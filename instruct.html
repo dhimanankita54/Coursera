@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        width: 200px;
+        border-radius: 50%;
+    }
+
+    /* #main{
+        display: grid;
+        grid-template-columns: 25% 25% 25%;
+        grid-template-rows: 25% 25%;
+    } */
+</style>
+
+<body>
+    <div id="main"></div>
+</body>
+
+</html>
+<script>
+    let count = 0;
+    let url = `https://api.coursera.org/api/instructors.v1?fields=photo`;
+    async function show() {
+        
+            let div = document.getElementById("main")
+            let res = await fetch(url);
+            let data = await res.json();
+            console.log(data)
+            data.elements.map(function (item) {
+                let name = document.createElement("h2")
+                name.innerText = item.fullName
+                let img = document.createElement("img")
+                img.src = item.photo;
+                count++;
+                // if (item.photo == null || undefined) {
+                //     img.src = "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101028/112815904-no-image-available-icon-flat-vector-illustration.jpg?ver=6"
+                //     div.append(img);
+                // } else {
+                //     count++
+                //     console.log(count)
+
+                    if (count <= 10) {
+    
+                        div.append(name,img)
+                    }
+                   // div.append(img)
+              //  }
+                })
+
+        }
+    show();
+</script>
