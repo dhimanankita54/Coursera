@@ -1,7 +1,11 @@
 img {
   width: 90%;
   margin-left: 5%;
+<<<<<<< Updated upstream
   height: 60%;
+=======
+  height: 70%;
+>>>>>>> Stashed changes
 }
 #main {
   display: grid;
